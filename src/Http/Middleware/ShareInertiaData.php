@@ -41,10 +41,6 @@ class ShareInertiaData
                     return;
                 }
 
-                if (Jetstream::hasTeamFeatures() && $request->user()) {
-                    $request->user()->currentTeam;
-                }
-
                 return array_merge($request->user()->toArray(), array_filter([
                     'all_teams' => Jetstream::hasTeamFeatures() ? $request->user()->allTeams() : null,
                 ]), [
